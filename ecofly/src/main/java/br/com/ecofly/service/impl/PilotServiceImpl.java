@@ -9,10 +9,10 @@ import br.com.ecofly.repository.PilotRepository;
 import br.com.ecofly.service.PilotService;
 
 @Service
-public class PilotServiceImpl implements PilotService{
-	
+public class PilotServiceImpl implements PilotService {
+
 	PilotRepository pilotRepository;
-	
+
 	public PilotServiceImpl(PilotRepository pilotRepository) {
 		this.pilotRepository = pilotRepository;
 	}
@@ -21,5 +21,4 @@ public class PilotServiceImpl implements PilotService{
 	public Optional<PilotEntity> getPilot(Integer id) {
 		return this.pilotRepository.findById(id);
 	}
-
 }

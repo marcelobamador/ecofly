@@ -26,6 +26,11 @@ public class ApiController {
 	public String login() {
 		return "login";
 	}
+	
+	@RequestMapping(value = "/efetuarlogin")
+	public String efetuarlogin() {
+		return "login";
+	}
 
 	@RequestMapping(value = "/adminlogin")
 	public String adminlogin(ModelMap model) {
@@ -36,6 +41,11 @@ public class ApiController {
 			model.addAttribute("totalFlights", opt.getTotalFlights());
 			model.addAttribute("totalHours", opt.getTotalHours());
 			model.addAttribute("totalPayment", opt.getTotalPay());
+			
+			//Carregar Cracha
+			Integer number = opt.getPilotId();
+			String formatted = opt.getCode() + String.format("%04d", number);
+			model.addAttribute("cracha", "img/uploads/" + formatted + ".png");
 		});
 		return "main_login";
 	}

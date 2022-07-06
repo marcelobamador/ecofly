@@ -7,5 +7,5 @@ import br.com.ecofly.model.PilotEntity;
 
 @Repository
 public interface PilotRepository extends JpaRepository<PilotEntity, Integer>{
-
+	
 }
