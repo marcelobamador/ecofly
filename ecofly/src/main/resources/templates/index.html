@@ -31,42 +31,8 @@
 	</head>
 	<body>
 		<!-- HEADER -->
-		<header id="header">
-			<div class="container">
-				<div id="logo" class="pull-left">
-					<a href="#hero"><img src="img/eco1.png" alt="" title="" /></img></a>
-				</div>
-				<nav id="nav-menu-container">
-					<ul class="nav-menu">
-						<li class="menu-active"><a href="#hero">Home</a></li>
-          				<li><a href="#about">About Us</a></li>
-          				<li><a href="#services">Services</a></li>
-          				<li><a href="#portfolio">Portfolio</a></li>
-          				<li><a href="#team">Team</a></li>
-          				<!--<li class="menu-has-children"><a href="">Drop Down</a>
-            				<ul>
-              					<li><a href="#">Drop Down 1</a></li>
-              					<li class="menu-has-children"><a href="#">Drop Down 2</a>
-                					<ul>
-                  						<li><a href="#">Deep Drop Down 1</a></li>
-                  						<li><a href="#">Deep Drop Down 2</a></li>
-                  						<li><a href="#">Deep Drop Down 3</a></li>
-                  						<li><a href="#">Deep Drop Down 4</a></li>
-                  						<li><a href="#">Deep Drop Down 5</a></li>
-                					</ul>
-              					</li>
-              					<li><a href="#">Drop Down 3</a></li>
-              					<li><a href="#">Drop Down 4</a></li>
-              					<li><a href="#">Drop Down 5</a></li>
-            				</ul>
-          				</li>
-          				<li><a href="#contact">Contact Us</a></li>-->
-          				<li><a href="login">Login</a></li>
-          			</ul>
-          		</nav>
-          	</div>
-		</header>
-		<!-- #header -->
+		<div th:replace="~{header :: header}"></div>
+		<!-- #HEADER -->
 		
 		<!-- Hero Section -->
   		<section id="hero">
@@ -510,32 +476,12 @@
   		</main>
   		<!-- #main -->
   		
-  		<!-- Footer -->
-  		<footer id="footer">
-    		<div class="footer-top">
-      			<div class="container"></div>
-    		</div>
-
-    		<div class="container">
-      			<div class="copyright">
-        			&copy; Copyright <strong>Regna</strong>. All Rights Reserved
-      			</div>
-      			<div class="credits">
-			        <!--
-			          All the links in the footer should remain intact.
-			          You can delete the links only if you purchased the pro version.
-			          Licensing information: https://bootstrapmade.com/license/
-			          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Regna
-			        -->
-        			Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      			</div>
-    		</div>
-  		</footer>
-  		<!-- #footer -->
+  		<!-- FOOTER -->
+  		<div th:replace="~{footer :: footer}"></div>
+  		<!-- #FOOTER -->
 
 		<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-		<!-- JavaScript Libraries 
 		<script src="lib/jquery/jquery.min.js"></script>
 		<script src="lib/jquery/jquery-migrate.min.js"></script>
 		<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -544,12 +490,12 @@
 		<script src="lib/waypoints/waypoints.min.js"></script>
 		<script src="lib/counterup/counterup.min.js"></script>
 		<script src="lib/superfish/hoverIntent.js"></script>
-		<script src="lib/superfish/superfish.min.js"></script> -->
+		<script src="lib/superfish/superfish.min.js"></script> 
 		
-		<!-- Contact Form JavaScript File 
-		<script src="contactform/contactform.js"></script> -->
 		
-		<!-- Template Main Javascript File 
-		<script src="js/main.js"></script>-->
+		<script src="contactform/contactform.js"></script>
+		
+		<!-- Template Main Javascript File -->
+		<script src="js/main.js"></script>
 	</body>
 </html>
