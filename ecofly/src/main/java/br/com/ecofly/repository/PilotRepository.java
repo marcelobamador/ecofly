@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import br.com.ecofly.model.PilotEntity;
 
-@Repository
 public interface PilotRepository extends JpaRepository<PilotEntity, Integer>{
 	
+	PilotEntity findByEmail(String email);
 }

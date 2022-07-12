@@ -944,7 +944,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #contact .form input, #contact .form textarea {
-  border-radius: 0;
+  border-radius: .25rem;
   box-shadow: none;
   font-size: 14px;
 }
@@ -980,4 +980,8 @@ body.mobile-nav-active #mobile-nav-toggle {
   text-align: center;
   font-size: 13px;
   color: #ccc;
+}
+
+.has-error {
+    color: red
 }

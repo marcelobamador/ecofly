@@ -1,12 +1,14 @@
 package br.com.ecofly.model;
 
+
+
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -17,8 +19,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class PilotEntity {
 
 	@Id
-	@Column(name = "pilotid")
-	private int pilotId;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "pilotid", unique = true, nullable = false)
+	private Integer pilotId;
 
 	@Column(name = "firstname")
 	private String firstName;
@@ -92,11 +95,11 @@ public class PilotEntity {
 	@Column(name = "comment")
 	private String comment;
 
-	public int getPilotId() {
+	public Integer getPilotId() {
 		return pilotId;
 	}
 
-	public void setPilotId(int pilotId) {
+	public void setPilotId(Integer pilotId) {
 		this.pilotId = pilotId;
 	}
 

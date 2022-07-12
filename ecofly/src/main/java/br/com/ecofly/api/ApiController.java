@@ -2,6 +2,7 @@ package br.com.ecofly.api;
 
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -10,19 +11,29 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 import br.com.ecofly.dto.User;
 import br.com.ecofly.model.PilotEntity;
 import br.com.ecofly.service.PilotService;
+import br.com.ecofly.service.UserService;
+import br.com.ecofly.util.UserValidator;
 
 @org.springframework.stereotype.Controller
 public class ApiController {
+	
+	@Autowired
+	private UserValidator userValidator;
+
+	@Autowired
+	private UserService userService;
 
 	PilotService pilotService;
+	
 
 	public ApiController(PilotService pilotService) {
 		this.pilotService = pilotService;
 	}
-
+	
 	@RequestMapping(value = "")
 	public String index() {
 		return "index";
@@ -38,27 +49,42 @@ public class ApiController {
 		return "login";
 	}
 	
+	/* =================== TELA DE CADASTRO  ===================  */
 	@GetMapping("/registration")
 	public String registration(Model model) {
-		/*if (securityService.isAuthenticated()) {
-			return "redirect:/";
-		}*/
-
 		model.addAttribute("userForm", new User());
-
 		return "registration";
 	}
+	/* =================== FIM TELA DE CADASTRO  ===================  */
 	
+	/* =================== FORM DE CADASTRO  ===================  */
 	@PostMapping(value = "/registration")
 	public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
-		System.out.println(userForm);
-		return "registration";
+		userValidator.validate(userForm, bindingResult);
+		
+		if (bindingResult.hasErrors()) {
+			return "registration";
+		}
+		
+		userService.save(userForm);
+		
+		return "redirect:/success";
 	}
+	/* =================== FIM FORM DE CADASTRO  ===================  */
 	
-	@RequestMapping(value = "/efetuarlogin")
+	/* =================== PÁGINA DE SUCESSO DE CADASTRO  ===================  */
+	@GetMapping({ "/", "/success" })
+	public String success(Model model) {
+		return "success";
+	}
+	/* =================== FIM PÁGINA DE SUCESSO DE CADASTRO  ===================  */
+	
+	/* =================== PÁGINA DE LOGIN  ===================  */
+	/*@RequestMapping(value = "/efetuarlogin")
 	public String efetuarlogin() {
 		return "login";
-	}
+	}*/
+	/* =================== FIM PÁGINA DE LOGIN  ===================  */
 
 	@RequestMapping(value = "/adminlogin")
 	public String adminlogin(ModelMap model) {

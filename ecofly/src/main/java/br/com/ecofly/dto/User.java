@@ -7,7 +7,8 @@ public class User {
 	private String location;
 	private String vatsimid;
 	private String password;
-	private String passwordconfirm;
+	private String passwordConfirm;
+	private String ip;
 
 	public String getName() {
 		return name;
@@ -57,12 +58,20 @@ public class User {
 		this.password = password;
 	}
 
-	public String getPasswordconfirm() {
-		return passwordconfirm;
+	public String getPasswordConfirm() {
+		return passwordConfirm;
 	}
 
-	public void setPasswordconfirm(String passwordconfirm) {
-		this.passwordconfirm = passwordconfirm;
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
+	}
+
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
 	}
 
 }
