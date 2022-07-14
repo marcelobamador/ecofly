@@ -21,4 +21,9 @@ public class PilotServiceImpl implements PilotService {
 	public Optional<PilotEntity> getPilot(Integer id) {
 		return this.pilotRepository.findById(id);
 	}
+
+	@Override
+	public long getCountPilots() {
+		return this.pilotRepository.count();
+	}
 }

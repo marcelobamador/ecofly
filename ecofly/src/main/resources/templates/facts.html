@@ -1,0 +1,27 @@
+<!-- Facts Section -->
+<section id="facts" th:fragment="facts">
+	<div class="container wow fadeIn">
+		<div class="row counters">
+			<div class="col-lg-3 col-6 text-center">
+				<span data-toggle="counter-up" th:text="${countPilots}"></span>
+				<p>Pilotos</p>
+			</div>
+
+			<div class="col-lg-3 col-6 text-center">
+				<span data-toggle="counter-up">7</span>
+				<p>Média de voos diários</p>
+			</div>
+
+			<div class="col-lg-3 col-6 text-center">
+				<span data-toggle="counter-up">4.000</span>
+				<p>Rotas</p>
+			</div>
+
+			<div class="col-lg-3 col-6 text-center">
+				<span data-toggle="counter-up"th:text="${countAircrafts}"></span>
+				<p>Aviões na frota</p>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- #facts -->

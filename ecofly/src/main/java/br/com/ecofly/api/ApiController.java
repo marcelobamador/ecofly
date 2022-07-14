@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.ecofly.dto.User;
 import br.com.ecofly.model.PilotEntity;
+import br.com.ecofly.service.AircraftService;
 import br.com.ecofly.service.PilotService;
 import br.com.ecofly.service.UserService;
 import br.com.ecofly.util.UserValidator;
@@ -26,7 +27,10 @@ public class ApiController {
 
 	@Autowired
 	private UserService userService;
-
+	
+	@Autowired
+	private AircraftService aircraftService;
+	
 	PilotService pilotService;
 	
 
@@ -35,12 +39,16 @@ public class ApiController {
 	}
 	
 	@RequestMapping(value = "")
-	public String index() {
+	public String index(ModelMap model) {
+		model.addAttribute("countPilots", this.pilotService.getCountPilots());
+		model.addAttribute("countAircrafts", aircraftService.getCountAircraft());
 		return "index";
 	}
 	
 	@RequestMapping(value = "/index")
-	public String indexOther() {
+	public String indexOther(ModelMap model) {
+		model.addAttribute("countPilots", this.pilotService.getCountPilots());
+		model.addAttribute("countAircrafts", aircraftService.getCountAircraft());
 		return "index";
 	}
 
@@ -73,7 +81,7 @@ public class ApiController {
 	/* =================== FIM FORM DE CADASTRO  ===================  */
 	
 	/* =================== PÁGINA DE SUCESSO DE CADASTRO  ===================  */
-	@GetMapping({ "/", "/success" })
+	@GetMapping({"/success" })
 	public String success(Model model) {
 		return "success";
 	}

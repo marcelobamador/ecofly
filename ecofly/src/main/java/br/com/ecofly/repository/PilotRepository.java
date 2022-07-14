@@ -8,4 +8,6 @@ import br.com.ecofly.model.PilotEntity;
 public interface PilotRepository extends JpaRepository<PilotEntity, Integer>{
 	
 	PilotEntity findByEmail(String email);
+	
+	long count();
 }
