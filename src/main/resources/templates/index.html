@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>Bem Vindo - EcoFly Virtual Airlines</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<meta content="" name="keywords">
+		<meta content="" name="description">
+		
+		<!-- Favicons -->
+  		<link href="img/eco.ico" rel="icon">
+  		<link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  		<!-- #favicons -->
+  		
+  		<!-- Google Fonts -->
+  		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
+  		<!-- #Google Fonts -->
+
+		<!-- Bootstrap CSS File -->
+		<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<!-- #Bootstrap CSS File -->
+
+	    <!-- Libraries CSS Files -->
+	    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	    <link href="lib/animate/animate.min.css" rel="stylesheet">
+	    <!-- #Libraries CSS Files -->
+
+  		<!-- Main Stylesheet File -->
+  		<link href="css/style.css" rel="stylesheet">
+  		<!-- #Main Stylesheet File -->
+	</head>
+	<body>
+		<!-- HEADER -->
+		<div th:replace="~{header :: header}"></div>
+		<!-- #HEADER -->
+		
+		<!-- Hero Section -->
+  		<section id="hero">
+    		<div class="hero-container">
+      			<h1>Bem-vindo à EcoFly Virtual Airlines</h1>
+      			<h2>Mais que uma virtual airlines, somos uma família</h2>
+      			<a href="registration" class="btn-get-started">Cadastre-se</a>
+    		</div>
+  		</section>
+  		<!-- #hero -->
+  		
+  		<!-- Main -->
+  		<main id="main">
+  			<!-- Contact Section -->
+    		<section id="contact" style="padding: 0;">
+      			<!-- Uncomment below if you wan to use dynamic maps -->
+      			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452" width="100%" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
+    		</section>
+    		<!-- #contact -->
+  		
+    		<!-- About Us Section -->
+    		<section id="about">
+      			<div class="container">
+        			<div class="row about-container">
+          				<div class="col-lg-6 content order-lg-1 order-2">
+            				
+            				<h2 class="title">Few Words About Us</h2>
+            				<p>
+              					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            				</p>
+            				
+            				<div class="icon-box wow fadeInUp">
+              					<div class="icon">
+              						<i class="fa fa-shopping-bag"></i>
+              					</div>
+              					<h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+              					<p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+            				</div>
+
+            				<div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+              					<div class="icon">
+              						<i class="fa fa-photo"></i>
+              					</div>
+              					<h4 class="title"><a href="">Magni Dolores</a></h4>
+              					<p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            				</div>
+
+            				<div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+              					<div class="icon">
+              						<i class="fa fa-bar-chart"></i>
+              					</div>
+              					<h4 class="title"><a href="">Dolor Sitema</a></h4>
+              					<p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+            				</div>
+          				</div>
+
+          				<div class="col-lg-6 background order-lg-2 order-1 wow fadeInRight"></div>
+        			</div>
+      			</div>
+    		</section>
+    		<!-- #about -->
+
+    		<!-- Facts Section -->
+    		<div th:replace="~{facts :: facts}"></div>
+    		<!-- #facts -->
+
+    		<!-- Services Section -->
+    		<div th:replace="~{flights :: flights}"></div>
+    		<!-- #services -->
+
+    		<!-- Call To Action Section -->
+    		<section id="call-to-action">
+      			<div class="container wow fadeIn">
+        			<div class="row">
+          				<div class="col-lg-9 text-center text-lg-left">
+            				<h3 class="cta-title">Call To Action</h3>
+            				<p class="cta-text"> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          				</div>
+          				<div class="col-lg-3 cta-btn-container text-center">
+            				<a class="cta-btn align-middle" href="#">Call To Action</a>
+          				</div>
+        			</div>
+      			</div>
+    		</section>
+    		<!-- #call-to-action -->
+
+    		<!-- Portfolio Section -->
+    		<!--<div th:replace="~{pictures :: pictures}"></div>-->
+    		<!-- #portfolio -->
+
+    		<!-- Team Section -->
+    		<div th:replace="~{partners :: partners}"></div>
+    		<!-- #team -->
+  		</main>
+  		<!-- #main -->
+  		
+  		<!-- FOOTER -->
+  		<div th:replace="~{footer :: footer}"></div>
+  		<!-- #FOOTER -->
+
+		<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+		<script src="lib/jquery/jquery.min.js"></script>
+		<script src="lib/jquery/jquery-migrate.min.js"></script>
+		<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="lib/easing/easing.min.js"></script>
+		<script src="lib/wow/wow.min.js"></script>
+		<script src="lib/waypoints/waypoints.min.js"></script>
+		<script src="lib/counterup/counterup.min.js"></script>
+		<script src="lib/superfish/hoverIntent.js"></script>
+		<script src="lib/superfish/superfish.min.js"></script> 
+		
+		
+		<script src="contactform/contactform.js"></script>
+		
+		<!-- Template Main Javascript File -->
+		<script src="js/main.js"></script>
+	</body>
+</html>
