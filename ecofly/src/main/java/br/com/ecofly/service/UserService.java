@@ -1,11 +1,11 @@
 package br.com.ecofly.service;
 
-import br.com.ecofly.dto.User;
+import br.com.ecofly.dto.UserDTO;
 
 public interface UserService {
 	
-	void save(User user);
+	void save(UserDTO user);
 	
-	User findByEmail(String username);
+	UserDTO findByEmail(String username);
 
 }

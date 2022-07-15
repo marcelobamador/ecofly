@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import br.com.ecofly.dto.User;
+import br.com.ecofly.dto.UserDTO;
 import br.com.ecofly.model.PilotEntity;
 import br.com.ecofly.repository.PilotRepository;
 import br.com.ecofly.service.UserService;
@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@Override
-	public void save(User user) {
+	public void save(UserDTO user) {
 		PilotEntity entity = new PilotEntity();
 		entity.setFirstName(user.getName());
 		entity.setLastName(user.getLastname());	
@@ -43,16 +43,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User findByEmail(String username) {
+	public UserDTO findByEmail(String username) {
 		PilotEntity pilot = pilotRepository.findByEmail(username);
 		
-		User user = null;
+		UserDTO user = null;
 		if(pilot != null) {
-			user = new User();
+			user = new UserDTO();
 			user.setEmail(pilot.getEmail());
 		}
-		
-		
 		return user;
 	}
 

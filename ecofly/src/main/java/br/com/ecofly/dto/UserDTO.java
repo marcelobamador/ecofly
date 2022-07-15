@@ -1,6 +1,6 @@
 package br.com.ecofly.dto;
 
-public class User {
+public class UserDTO {
 	private String name;
 	private String lastname;
 	private String email;

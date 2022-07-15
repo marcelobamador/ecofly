@@ -7,5 +7,5 @@ import br.com.ecofly.model.AircraftEntity;
 public interface AircraftRepository extends JpaRepository<AircraftEntity, Integer>{
 	
 	long count();
-
+	
 }

@@ -6,7 +6,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import br.com.ecofly.dto.User;
+import br.com.ecofly.dto.UserDTO;
 import br.com.ecofly.service.UserService;
 
 
@@ -18,12 +18,12 @@ public class UserValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> aClass) {
-		return User.class.equals(aClass);
+		return UserDTO.class.equals(aClass);
 	}
 
 	@Override
 	public void validate(Object o, Errors errors) {
-		User user = (User) o;
+		UserDTO user = (UserDTO) o;
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty");
         if (user.getEmail().length() < 6) {

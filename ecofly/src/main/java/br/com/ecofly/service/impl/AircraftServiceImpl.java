@@ -1,7 +1,10 @@
 package br.com.ecofly.service.impl;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
+import br.com.ecofly.model.AircraftEntity;
 import br.com.ecofly.repository.AircraftRepository;
 import br.com.ecofly.service.AircraftService;
 
@@ -17,6 +20,11 @@ public class AircraftServiceImpl implements AircraftService {
 	@Override
 	public long getCountAircraft() {
 		return this.aircraftRepository.count();
+	}
+
+	@Override
+	public Optional<AircraftEntity> getAircraftById(Integer id) {
+		return this.aircraftRepository.findById(id);
 	}
 
 }

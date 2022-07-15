@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
-import br.com.ecofly.dto.User;
+import br.com.ecofly.dto.UserDTO;
 import br.com.ecofly.model.PilotEntity;
 import br.com.ecofly.service.AircraftService;
 import br.com.ecofly.service.PilotService;
+import br.com.ecofly.service.PirepsService;
 import br.com.ecofly.service.UserService;
 import br.com.ecofly.util.UserValidator;
 
@@ -31,6 +32,9 @@ public class ApiController {
 	@Autowired
 	private AircraftService aircraftService;
 	
+	@Autowired
+	private PirepsService pirepsService;
+	
 	PilotService pilotService;
 	
 
@@ -42,6 +46,7 @@ public class ApiController {
 	public String index(ModelMap model) {
 		model.addAttribute("countPilots", this.pilotService.getCountPilots());
 		model.addAttribute("countAircrafts", aircraftService.getCountAircraft());
+		model.addAttribute("lastPireps", pirepsService.listPiperps());
 		return "index";
 	}
 	
@@ -49,6 +54,7 @@ public class ApiController {
 	public String indexOther(ModelMap model) {
 		model.addAttribute("countPilots", this.pilotService.getCountPilots());
 		model.addAttribute("countAircrafts", aircraftService.getCountAircraft());
+		model.addAttribute("lastPireps", pirepsService.listPiperps());
 		return "index";
 	}
 
@@ -60,14 +66,14 @@ public class ApiController {
 	/* =================== TELA DE CADASTRO  ===================  */
 	@GetMapping("/registration")
 	public String registration(Model model) {
-		model.addAttribute("userForm", new User());
+		model.addAttribute("userForm", new UserDTO());
 		return "registration";
 	}
 	/* =================== FIM TELA DE CADASTRO  ===================  */
 	
 	/* =================== FORM DE CADASTRO  ===================  */
 	@PostMapping(value = "/registration")
-	public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
+	public String registration(@ModelAttribute("userForm") UserDTO userForm, BindingResult bindingResult) {
 		userValidator.validate(userForm, bindingResult);
 		
 		if (bindingResult.hasErrors()) {

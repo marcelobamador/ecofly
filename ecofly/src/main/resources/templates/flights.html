@@ -1,0 +1,42 @@
+<section id="services" th:fragment="flights">
+	<div class="container wow fadeIn">
+		<div class="section-header">
+			<h3 class="section-title">Últimos voos</h3>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="table-wrap">
+					<table class="table table-striped" style="border: 1px solid #dee2e6;">
+						<thead>
+							<tr style="text-align: center;">
+						    	<th>Voo</th>
+						      	<th>Piloto</th>
+						      	<th>Origem</th>
+						      	<th>Destino</th>
+						      	<th>Aeronave</th>
+						      	<th>Duração</th>
+						      	<th>V/S</th>
+						      	<th>Info</th>
+						    </tr>
+						</thead>
+						<tbody>
+							<tr th:if="${lastPireps.empty}"  style="text-align: center;">
+					            <td colspan="8">Nenhum voo recente</td>
+					        </tr>
+					        <tr th:each="pireps : ${lastPireps}"  style="text-align: center;">
+					            <td th:text="${pireps.flight}"></td>
+					            <td th:text="${pireps.pilot}"></td>
+					            <td th:text="${pireps.origem}"></td>
+					            <td th:text="${pireps.destino}"></td>
+					            <td th:text="${pireps.aeronave}"></td>
+					            <td th:text="${pireps.duracao}"></td>
+					            <td th:text="${pireps.vs}"></td>
+					            <td th:text="${pireps.info}"></td>
+					        </tr>
+					 	</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

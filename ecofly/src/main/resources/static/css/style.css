@@ -139,7 +139,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url(../img/hero-bg.jpg) top center;
+  background: url(../img/wallpaperbetter.jpg) top center;
   background-size: cover;
   position: relative;
 }
@@ -819,7 +819,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 #team .member .pic {
   margin-bottom: 15px;
   overflow: hidden;
-  height: 260px;
+  height: auto;
 }
 
 #team .member .pic img {
@@ -982,6 +982,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #ccc;
 }
 
+/* */
 .has-error {
     color: red
 }
