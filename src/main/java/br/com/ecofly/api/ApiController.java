@@ -49,6 +49,12 @@ public class ApiController {
 
 	@RequestMapping(value = "")
 	public String index(ModelMap model) {
+		if (securityService.isAuthenticated()) {
+			model.addAttribute("logged", 1);
+		} else {
+			model.addAttribute("logged", 0);
+		}
+		
 		model.addAttribute("countPilots", this.pilotService.getCountPilots());
 		model.addAttribute("countAircrafts", aircraftService.getCountAircraft());
 		model.addAttribute("lastPireps", pirepsService.listPiperps());
@@ -57,6 +63,12 @@ public class ApiController {
 
 	@RequestMapping(value = "/index")
 	public String indexOther(ModelMap model) {
+		if (securityService.isAuthenticated()) {
+			model.addAttribute("logged", 1);
+		} else {
+			model.addAttribute("logged", 0);
+		}
+		
 		model.addAttribute("countPilots", this.pilotService.getCountPilots());
 		model.addAttribute("countAircrafts", aircraftService.getCountAircraft());
 		model.addAttribute("lastPireps", pirepsService.listPiperps());
@@ -125,6 +137,7 @@ public class ApiController {
 			model.addAttribute("totalHours", opt.getTotalHours());
 			model.addAttribute("totalPayment", opt.getTotalPay());
 			model.addAttribute("cracha", "img/uploads/" + formatted + ".png");
+			model.addAttribute("awards", opt.getLikes());
 		});
 		return "main_login";
 	}

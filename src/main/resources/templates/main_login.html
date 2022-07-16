@@ -29,6 +29,11 @@
   		<!-- Main Stylesheet File -->
   		<link href="css/style.css" rel="stylesheet">
   		<!-- #Main Stylesheet File -->
+  		
+  		<!-- GEOCHARTS -->
+  		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  		<script type="text/javascript" src="js/geocharts.js"></script>
+  		<!-- #GEOCHARTS -->
 	</head>
 	<body>
 		<!-- HEADER -->
@@ -40,10 +45,10 @@
 				<nav id="nav-menu-container">
 					<ul class="nav-menu">
 						<li class="menu-active"><a href="#hero">Home</a></li>
-          				<li><a href="#about">About Us</a></li>
-          				<li><a href="#services">Services</a></li>
-          				<li><a href="#portfolio">Portfolio</a></li>
-          				<li><a href="#team">Team</a></li>
+          				<li><a href="index">Site</a></li>
+          				<li><a href="#services">Tarefas</a></li>
+          				<li><a href="#portfolio">Finanças</a></li>
+          				<li><a href="#team">Administração</a></li>
           				<!--<li class="menu-has-children"><a href="">Drop Down</a>
             				<ul>
               					<li><a href="#">Drop Down 1</a></li>
@@ -96,7 +101,7 @@
             				
             				<div class="icon-box wow fadeInUp">
               					<div class="icon">
-              						<i class="fa fa-shopping-bag"></i>
+              						<i class="fa fa-plane"></i>
               					</div>
               					<h4 class="title">Total de Voos</h4>
               					<p class="description" style="font-size: 15pt;" th:text="${totalFlights}"></p>
@@ -104,7 +109,7 @@
 
             				<div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
               					<div class="icon">
-              						<i class="fa fa-photo"></i>
+              						<i class="fa fa-bar-chart"></i>
               					</div>
               					<h4 class="title">Horas de Voo</h4>
               					<p class="description" style="font-size: 15pt;" th:text="${totalHours}"></p>
@@ -112,7 +117,7 @@
 
             				<div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
               					<div class="icon">
-              						<i class="fa fa-bar-chart"></i>
+              						<i class="fa fa-money"></i>
               					</div>
               					<h4 class="title">Dinheiro</h4>
               					<p class="description" style="font-size: 15pt;" th:text="${#numbers.formatCurrency(totalPayment)}"></p>
@@ -131,56 +136,71 @@
     		<section id="services">
       			<div class="container wow fadeIn">
         			<div class="section-header">
-          				<h3 class="section-title">Services</h3>
-          				<p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
         			</div>
         			<div class="row">
           				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
             				<div class="box">
-              					<div class="icon"><a href=""><i class="fa fa-desktop"></i></a></div>
-              					<h4 class="title"><a href="">Lorem Ipsum</a></h4>
-              					<p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+              					<div class="icon"><a href=""><i class="fa fa-user-o"></i></a></div>
+              					<h4 class="title"><a href="">Editar perfil</a></h4>
+              					<p class="description">Aqui você pode alterar e-mail, localização, ID Vatsim e a imagem do crach.</p>
             				</div>
           				</div>
           				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
             				<div class="box">
-              					<div class="icon"><a href=""><i class="fa fa-bar-chart"></i></a></div>
-              					<h4 class="title"><a href="">Dolor Sitema</a></h4>
-              					<p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+              					<div class="icon"><a href=""><i class="fa fa-key"></i></a></div>
+              					<h4 class="title"><a href="">Alterar senha</a></h4>
+              					<p class="description">Aqui você pode alterar sua senha para acessar os sistemas da Ecofly.</p>
             				</div>
           				</div>
           				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
             				<div class="box">
-              					<div class="icon"><a href=""><i class="fa fa-paper-plane"></i></a></div>
-              					<h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-              					<p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+              					<div class="icon"><a href=""><i class="fa fa-download"></i></a></div>
+              					<h4 class="title"><a href="">Downloads</a></h4>
+              					<p class="description">Baixe aqui o seu crachá e os sistemas utilizados na Ecofly.</p>
             				</div>
           				</div>
           				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
             				<div class="box">
-              					<div class="icon"><a href=""><i class="fa fa-photo"></i></a></div>
-              					<h4 class="title"><a href="">Magni Dolores</a></h4>
-              					<p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+              					<div class="icon"><a href=""><i class="fa fa-clock-o"></i></a></div>
+              					<h4 class="title"><a href="">Reservas</a></h4>
+              					<p class="description">Faça aqui as suas reservas de voo e aproveite. As reservas duram apenas 24 horas.</p>
             				</div>
           				</div>
           				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
             				<div class="box">
-              					<div class="icon"><a href=""><i class="fa fa-road"></i></a></div>
-              					<h4 class="title"><a href="">Nemo Enim</a></h4>
-              					<p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+              					<div class="icon"><a href=""><i class="fa fa-plane"></i></a></div>
+              					<h4 class="title"><a href="">Frota</a></h4>
+              					<p class="description">Baixe aqui as texturas das aeronaves que temos disponiveis na Ecofly.</p>
             				</div>
           				</div>
           				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
             				<div class="box">
-              					<div class="icon"><a href=""><i class="fa fa-shopping-bag"></i></a></div>
-              					<h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-              					<p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+              					<div class="icon"><a href=""><i class="fa fa-map-o"></i></a></div>
+              					<h4 class="title"><a href="">Tours</a></h4>
+              					<p class="description">Veja aqui os tours que temos disponiveis e aproveite para voar.</p>
             				</div>
           				</div>
         			</div>
       			</div>
     		</section>
     		<!-- #services -->
+    		
+    		<section id="services" th:fragment="flights">
+				<div class="container wow fadeIn">
+					<div class="section-header">
+						<h3 class="section-title">Países com mais voos</h3>
+					</div>
+					<div class="row">
+						<div class="col-sm">
+					    </div>
+					    <div class="col-sm">
+					      <div id="regions_div" style="width: 900px; height: 500px;"></div>
+					    </div>
+					    <div class="col-sm">
+					    </div>
+					</div>
+				</div>
+			</section>
     		
     		<!-- Team Section -->
     		<section id="team">
@@ -189,31 +209,11 @@
           				<h3 class="section-title">Awards</h3>
         			</div>
         			<div class="row">
-          				<div class="col-lg-3 col-md-6">
+        				
+          				<div class="col-lg-3 col-md-6" th:each="listAwards : ${awards}">
             				<div class="member">
-            					<h4>America do Sul Tour</h4>
-              					<div class="pic"><img src="img/uploads/americadosul.png" alt=""></div>
-            				</div>
-          				</div>
-
-          				<div class="col-lg-3 col-md-6">
-            				<div class="member">
-            					<h4>World Tour Ecofly</h4>
-              					<div class="pic"><img src="img/uploads/americadosul.png" alt=""></div>
-            				</div>
-          				</div>
-
-          				<div class="col-lg-3 col-md-6">
-            				<div class="member">
-              					<h4>Terra do Sol Nascente Tou</h4>
-              					<div class="pic"><img src="img/uploads/americadosul.png" alt=""></div>
-            				</div>
-          				</div>
-
-          				<div class="col-lg-3 col-md-6">
-            				<div class="member">
-              					<h4>Tour MotoGP</h4> 
-              					<div class="pic"><img src="img/uploads/americadosul.png" alt=""></div>
+            					<div class="pic" style="margin-bottom: 0px;"><img th:src=" @{${listAwards.image}}" alt=""></div>
+            					<h6 th:text="${listAwards.name}"></h6>
             				</div>
           				</div>
         			</div>
