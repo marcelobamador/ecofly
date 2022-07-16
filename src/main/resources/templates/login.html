@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-		<title>Login V1</title>
+		<title>Login</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
@@ -30,26 +30,32 @@
 						<img src="img/img-01.png" alt="IMG">
 					</div>
 
-					<form class="login100-form validate-form" method="POST">
+					<form class="login100-form validate-form" method="POST" th:action="@{/login}">
 						<span class="login100-form-title">
 							Faça seu login abaixo
 						</span>
 
-						<div class="wrap-input100 validate-input" data-validate = "E-mail válido requerido: ex@abc.xyz">
-							<input class="input100" type="text" name="email" placeholder="Email">
+						<span th:text="${message}" style="padding-left: 12%;"></span>
+
+						<div class="wrap-input100 validate-input" data-validate = "Usuário requerido">
+							<input class="input100" type="text" name="username" placeholder="Usuário">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
-								<i class="fa fa-envelope" aria-hidden="true"></i>
+								<i class="fa fa-user" aria-hidden="true"></i>
 							</span>
 						</div>
 
 						<div class="wrap-input100 validate-input" data-validate = "Senha é requerida">
-							<input class="input100" type="password" name="pass" placeholder="Senha">
+							<input class="input100" type="password" name="password" placeholder="Senha">
 							<span class="focus-input100"></span>
 							<span class="symbol-input100">
 								<i class="fa fa-lock" aria-hidden="true"></i>
 							</span>
 						</div>
+						
+						<span class="has-error" th:text="${error}" style="color: red; padding-left: 12%;"></span>
+						
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 						
 						<div class="container-login100-form-btn">
 							<button class="login100-form-btn">

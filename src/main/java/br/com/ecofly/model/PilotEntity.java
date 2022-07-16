@@ -97,5 +97,8 @@ public class PilotEntity {
 
 	@Column(name = "comment")
 	private String comment;
+	
+	@Column(name = "username")
+	private String userName;
 
 }

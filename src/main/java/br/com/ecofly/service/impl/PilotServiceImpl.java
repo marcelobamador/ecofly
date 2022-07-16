@@ -26,4 +26,9 @@ public class PilotServiceImpl implements PilotService {
 	public long getCountPilots() {
 		return this.pilotRepository.count();
 	}
+
+	@Override
+	public Optional<PilotEntity> getPilotUserName(String userName) {
+		return this.pilotRepository.findByUserName(userName);
+	}
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 	<head>
 		<meta charset="utf-8">
 		<title>Bem Vindo - EcoFly Virtual Airlines</title>
@@ -61,7 +62,12 @@
             				</ul>
           				</li>
           				<li><a href="#contact">Contact Us</a></li>-->
-          				<li><a href="login">Login</a></li>
+          				<li>
+          					<form id="logoutForm" method="POST" th:action="@{/logout}">
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+							</form>
+          					<a href="#" onclick="document.forms['logoutForm'].submit()">Sair</a>
+          				</li>
           			</ul>
           		</nav>
           	</div>
@@ -85,7 +91,7 @@
         			<div class="row about-container">
           				<div class="col-lg-6 content order-lg-1 order-2">
             				
-            				<h2 class="title" th:text="${name}"></h2>
+            				<h2 class="title" th:text="${name}" style="text-transform: capitalize;"></h2>
             				<p style="font-size: 12pt; color: darkgray; margin-top: -5%;" th:text="${rank}"></p>
             				
             				<div class="icon-box wow fadeInUp">

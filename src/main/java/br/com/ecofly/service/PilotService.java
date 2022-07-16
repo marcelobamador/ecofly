@@ -8,6 +8,8 @@ public interface PilotService {
 
 	Optional<PilotEntity> getPilot(Integer id);
 	
+	Optional<PilotEntity> getPilotUserName(String userName);
+	
 	long getCountPilots();
 	
 }
