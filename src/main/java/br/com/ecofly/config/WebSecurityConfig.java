@@ -33,7 +33,7 @@ public class WebSecurityConfig {
 				.formLogin()
 					.loginPage("/login")
 					.permitAll()
-					.defaultSuccessUrl("/adminlogin", true).and()
+					.defaultSuccessUrl("/homepilot", true).and()
 				.logout().permitAll();
 
 		return http.build();

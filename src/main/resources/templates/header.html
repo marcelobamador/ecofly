@@ -3,7 +3,6 @@
 		<div id="logo" class="pull-left">
 			<a href="index"><img src="img/eco1.png" alt="" title="" /></img></a>
 		</div>
-				
 		<!-- MENU -->
 		<nav id="nav-menu-container">
 			<ul class="nav-menu">
@@ -11,7 +10,7 @@
 				<li><a href="sobre">Sobre nós</a></li>
 				<li><a href="regulamento">Regulamento</a></li>
 				<li th:if="${logged == 1}">
-					<a href="adminlogin">Central do piloto</a>
+					<a href="homepilot">Central do piloto</a>
 				</li>
 				<!--<li><a href="#team">Team</a></li>
 				<li class="menu-has-children"><a href="">Drop Down</a>
@@ -33,13 +32,11 @@
 				</li>
 				<li><a href="#contact">Contact Us</a></li>-->
 				<li><a href="registration">Cadastro</a></li>
-				<li><a href="login">Login</a></li>
+				<li th:if="${logged == 0}">
+					<a href="login">Login</a>
+				</li>
 			</ul>
 		</nav>
 		<!-- #MENU -->
-		
   	</div>
 </header>
-
-
-

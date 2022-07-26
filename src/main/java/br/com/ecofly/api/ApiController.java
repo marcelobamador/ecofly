@@ -1,9 +1,13 @@
 package br.com.ecofly.api;
 
+import java.util.Collection;
 import java.util.Optional;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.ui.Model;
@@ -46,7 +50,7 @@ public class ApiController {
 	public ApiController(PilotService pilotService) {
 		this.pilotService = pilotService;
 	}
-
+	
 	@RequestMapping(value = "")
 	public String index(ModelMap model) {
 		if (securityService.isAuthenticated()) {
@@ -120,12 +124,13 @@ public class ApiController {
 	}
 	/* =================== FIM PÁGINA DE SUCESSO DE CADASTRO =================== */
 
-	@GetMapping({ "/adminlogin" })
-	public String adminlogin(ModelMap model) {
+	/* =================== PÁGINA INICIAL DO PILOTO =================== */
+	@GetMapping({ "/homepilot" })
+	public String homePilot(ModelMap model) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
 		User user = (User) auth.getPrincipal();
-
+		
 		Optional<PilotEntity> optional = this.pilotService.getPilotUserName(user.getUsername());
 		optional.ifPresent((opt) -> {
 			Integer number = opt.getPilotId();
@@ -138,7 +143,53 @@ public class ApiController {
 			model.addAttribute("totalPayment", opt.getTotalPay());
 			model.addAttribute("cracha", "img/uploads/" + formatted + ".png");
 			model.addAttribute("awards", opt.getLikes());
+			
+			if (securityService.isAuthenticated()) {
+				Collection<GrantedAuthority> credentials = (Collection<GrantedAuthority>) auth.getAuthorities();
+				for (GrantedAuthority authority : credentials) {
+					if (authority.getAuthority().contains("Administrators")) {
+						model.addAttribute("group", 1);
+						break;
+					}
+				}
+			}
+			
 		});
 		return "main_login";
+	}
+	/* =================== FIM PÁGINA INICIAL DO PILOTO =================== */
+	
+	/* =================== EDITAR PILOTO =================== */
+	@GetMapping({ "/editpilot" })
+	public String editPilot(Model model) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+		User user = (User) auth.getPrincipal();
+		
+		Optional<PilotEntity> optional = this.pilotService.getPilotUserName(user.getUsername());
+		optional.ifPresent((opt) -> {
+			Integer number = opt.getPilotId();
+			String formatted = opt.getCode() + String.format("%04d", number);
+			
+			model.addAttribute("name", formatted + " - " + opt.getFirstName() + " " + opt.getLastName());
+			model.addAttribute("rank", opt.getRank());
+			model.addAttribute("totalFlights", opt.getTotalFlights());
+			model.addAttribute("totalHours", opt.getTotalHours());
+			model.addAttribute("totalPayment", opt.getTotalPay());
+			model.addAttribute("cracha", "img/uploads/" + formatted + ".png");
+			model.addAttribute("awards", opt.getLikes());
+			
+			if (securityService.isAuthenticated()) {
+				Collection<GrantedAuthority> credentials = (Collection<GrantedAuthority>) auth.getAuthorities();
+				for (GrantedAuthority authority : credentials) {
+					if (authority.getAuthority().contains("Administrators")) {
+						model.addAttribute("group", 1);
+						break;
+					}
+				}
+			}
+			
+		});
+		return "editar_piloto";
 	}
 }

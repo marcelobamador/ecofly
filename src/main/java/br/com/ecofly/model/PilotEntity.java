@@ -110,5 +110,8 @@ public class PilotEntity {
 	
 	@ManyToMany(mappedBy = "likedPilots", fetch = FetchType.LAZY)
     Set<AwardsEntity> likes;
+	
+	@ManyToMany(mappedBy = "accessPilots", fetch = FetchType.LAZY)
+    Set<GroupsEntity> groups;
 
 }
