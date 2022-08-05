@@ -18,8 +18,6 @@ public class UpdateFlight {
 	@Autowired
 	private PirepsService pirepsService;
 
-	//private final PersonRepository repository;
-
     @Scheduled(fixedDelay = 100000)
     public void getPersonsAfterFifty() throws ParseException{
     	List<PirepsEntity> entity = pirepsService.listPirepsToday();
