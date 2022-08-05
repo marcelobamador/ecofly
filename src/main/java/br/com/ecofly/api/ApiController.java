@@ -51,6 +51,7 @@ public class ApiController {
 		this.pilotService = pilotService;
 	}
 	
+	/* =================== PÁGINA INICIAL =================== */
 	@RequestMapping(value = "")
 	public String index(ModelMap model) {
 		if (securityService.isAuthenticated()) {
@@ -78,7 +79,9 @@ public class ApiController {
 		model.addAttribute("lastPireps", pirepsService.listPiperps());
 		return "index";
 	}
+	/* =================== FIM PÁGINA INICIAL =================== */
 
+	/* =================== LOGIN =================== */
 	@RequestMapping(value = "/login")
 	public String login(Model model, String error, String logout) {
 		if (securityService.isAuthenticated()) {
@@ -93,10 +96,16 @@ public class ApiController {
 
 		return "login";
 	}
+	/* =================== FIM LOGIN =================== */
 
 	/* =================== TELA DE CADASTRO =================== */
 	@GetMapping("/registration")
 	public String registration(Model model) {
+		if (securityService.isAuthenticated()) {
+			model.addAttribute("logged", 1);
+		} else {
+			model.addAttribute("logged", 0);
+		}
 		model.addAttribute("userForm", new UserDTO());
 		return "registration";
 	}
@@ -192,4 +201,17 @@ public class ApiController {
 		});
 		return "editar_piloto";
 	}
+	/* =================== FIM EDITAR PILOTO =================== */
+	
+	/* =================== PÁGINA DE REGULAMENTO =================== */
+	@GetMapping("/regulamento")
+	public String regulamento(Model model) {
+		if (securityService.isAuthenticated()) {
+			model.addAttribute("logged", 1);
+		} else {
+			model.addAttribute("logged", 0);
+		}
+		return "regulamento";
+	}
+	/* =================== FIM PÁGINA DE REGULAMENTO =================== */
 }

@@ -28,7 +28,7 @@ public class WebSecurityConfig {
 
 		http.authorizeRequests()
 				.antMatchers("/contactform/**", "/css/**", "/fonts/**", "/img/**", "/js/**", "/lib/**", "/vendor/**",
-						"/", "/index", "/registration", "/success")
+						"/", "/index", "/registration", "/success", "/regulamento")
 				.permitAll().anyRequest().authenticated().and()
 				.formLogin()
 					.loginPage("/login")
